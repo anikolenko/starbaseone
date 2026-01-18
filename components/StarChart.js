@@ -4,12 +4,14 @@ import * as d3 from 'd3';
 const URL_STARS = "https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/stars.6.json";
 const URL_CONST = "https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/constellations.lines.json";
 const URL_CONST_NAMES = "https://raw.githubusercontent.com/ofrohn/d3-celestial/master/data/constellations.json";
+const defaultLong = 20.3;
+const defaultLat = 51.54;
 
 export default function StarChart() {
     const containerRef = useRef(null);
     const [data, setData] = useState({ stars: null, consts: null, constNames: null });
-    const [lat, setLat] = useState(51.54);
-    const [lon, setLon] = useState(20.3);
+    const [lat, setLat] = useState(defaultLat);
+    const [lon, setLon] = useState(defaultLong);
     const [datetime, setDatetime] = useState('');
     const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
 
@@ -160,8 +162,8 @@ export default function StarChart() {
     const reset = () => {
          const now = new Date();
          setDatetime(new Date(now.getTime() - (now.getTimezoneOffset() * 60000)).toISOString().slice(0, 16));
-         setLat(51.54);
-         setLon(20.3);
+         setLat(defaultLat);
+         setLon(defaultLong);
     };
 
     return (
