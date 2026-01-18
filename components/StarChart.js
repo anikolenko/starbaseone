@@ -68,7 +68,7 @@ export default function StarChart() {
             .attr("width", width)
             .attr("height", height);
 
-        const projection = d3.geoStereographic().clipAngle(90).precision(0.1);
+        const projection = d3.geoStereographic().clipAngle(90).precision(0.1).reflectX(true);
 
         // Visual effects (defs)
         const defs = svg.append("defs");
